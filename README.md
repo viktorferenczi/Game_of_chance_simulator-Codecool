@@ -135,7 +135,7 @@ In this project
 ## Starting repository
 
 Click here to clone your own Git repository:
-<https://classroom.github.com/g/NEED_TO_CREATE_THIS>
+<https://classroom.github.com/g/FRWGC3Cw>
 
 ## Background materials
 
