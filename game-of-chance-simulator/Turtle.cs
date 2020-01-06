@@ -5,13 +5,13 @@ namespace GameOfChanceSimulator
     {
         public int Health { get; set; }
         public int Damage { get; set; }
-        public float Crit { get; set; }
+        public int Crit { get; set; }
 
-        public Turtle(int health,int damage,float crit)
+        public Turtle(string health,string damage,string crit)
         {
-            this.Health = health;
-            this.Damage = damage;
-            this.Crit = crit;
+            this.Health = Convert.ToInt32(health);
+            this.Damage = Convert.ToInt32(damage);
+            this.Crit = Convert.ToInt32(crit);
         }
 
     }
