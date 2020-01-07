@@ -83,14 +83,7 @@ namespace GameOfChanceSimulator
                 return true;
             }
 
-            bool ChooseYourself(int number) // check if the attacker choose himself to attack.
-            {
-                if (number.Equals(turtles[number]))
-                {
-                    return true;
-                }
-                return false;
-            }
+            //
 
             bool NotDeadYourself(int i) // check if the attacker is alive
             {
@@ -117,7 +110,7 @@ namespace GameOfChanceSimulator
                         {
                             int enemy = rnd.Next(0, turtles.Count); // generate an enemy
 
-                                if (NotDeadEnemy(enemy) == true && ChooseYourself(attacker) == false) // if the enemy is not dead and the attacker is not choosing himself
+                                if (NotDeadEnemy(enemy) == true && attacker != enemy) // if the enemy is not dead and the attacker is not choosing himself
                                 {
                                     Attack(attacker, enemy); // attacker hits the enemy
                                     AllDead(); // checking if everybody is dead except one guy
