@@ -57,7 +57,7 @@ namespace GameOfChanceSimulator
                         counter += 1;
                     }
                 }
-                if (counter == 4)
+                if (counter == 4 || counter == 5)
                 {
                     
                     return true;
@@ -113,16 +113,15 @@ namespace GameOfChanceSimulator
                         {
                             int enemy = rnd.Next(0, turtles.Count); // generate an enemy
 
-                            if (NotDeadYourself(attacker) == true) // if the attacker is not dead
-                            {
+                            
                                 if (NotDeadenemy(enemy) == true && ChooseYourself(attacker) == false) // if the enemy is not dead and the attacker is not choosing himself
                                 {
                                     Attack(attacker, enemy); // attacker hits the enemy
                                     AllDead(); // checking if everybody is dead except one guy
                                     break; // forloop iterating for the next attacker
                                 }
-                            }
-                            continue; // this attacker try to attack again.
+                           
+                            break; // this attacker try to attack again.
                         }
 
                     }
@@ -140,7 +139,7 @@ namespace GameOfChanceSimulator
                 }
 
             }
-            throw new InvalidOperationException("asd");
+            return "No survivor.";
         }
 
      }
