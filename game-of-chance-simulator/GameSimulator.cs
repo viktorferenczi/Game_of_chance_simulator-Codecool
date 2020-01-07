@@ -27,12 +27,16 @@ namespace GameOfChanceSimulator
                 }
 
             }
-            Random rnd = new Random();
+            // getting data from csv, then put the fighter objects in a list
+
+
+
+            Random rnd = new Random(); // random generator for enemy
 
 
 
 
-            void Attack(int Attacker, int Attacked)
+            void Attack(int Attacker, int Attacked) // ATTACK!!!!!!
             {
                 if (rnd.Next(0, 100) < turtles[Attacker].Crit)
                 {
@@ -47,7 +51,7 @@ namespace GameOfChanceSimulator
 
           
 
-             bool AllDead()
+             bool AllDead() // check how many dead turtle in the game
             {
                 int counter = 0;
                 for (int i = 0; i < turtles.Count; i++)
@@ -69,7 +73,7 @@ namespace GameOfChanceSimulator
 
             }
 
-            bool NotDeadenemy(int number)
+            bool NotDeadenemy(int number) // check if the enemy is alive or not
             {
 
                 if (turtles[number].Health <= 0)
@@ -79,7 +83,7 @@ namespace GameOfChanceSimulator
                 return true;
             }
 
-            bool ChooseYourself(int number)
+            bool ChooseYourself(int number) // check if the attacker choose himself to attack.
             {
                 if (number.Equals(turtles[number]))
                 {
@@ -88,7 +92,7 @@ namespace GameOfChanceSimulator
                 return false;
             }
 
-            bool NotDeadYourself(int i)
+            bool NotDeadYourself(int i) // check if the attacker is alive
             {
 
                 if (turtles[i].Health <= 0)
@@ -135,11 +139,11 @@ namespace GameOfChanceSimulator
             {
                 if (turtles[i].Health > 0)
                 {
-                    return turtles[i].Name;
+                    return turtles[i].Name; // Returns the survivor's name
                 }
 
             }
-            return "No survivor.";
+            return "No survivor!"; // epic battle, no survivor, the last two man killed each other
         }
 
      }
