@@ -5,6 +5,7 @@ namespace GameOfChanceSimulator
     {
         public ConsoleLogger()
         {
+            
         }
     }
 }

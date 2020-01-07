@@ -1,6 +1,6 @@
 using System;
-using System.IO;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace GameOfChanceSimulator
@@ -104,13 +104,8 @@ namespace GameOfChanceSimulator
                     return true;
                 }
                 return false;
+
             }
-
-
-
-
-
-
         }
 
     }  
