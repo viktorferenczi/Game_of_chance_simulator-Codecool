@@ -73,7 +73,7 @@ namespace GameOfChanceSimulator
 
             }
 
-            bool NotDeadenemy(int number) // check if the enemy is alive or not
+            bool NotDeadEnemy(int number) // check if the enemy is alive or not
             {
 
                 if (turtles[number].Health <= 0)
@@ -117,8 +117,7 @@ namespace GameOfChanceSimulator
                         {
                             int enemy = rnd.Next(0, turtles.Count); // generate an enemy
 
-                            
-                                if (NotDeadenemy(enemy) == true && ChooseYourself(attacker) == false) // if the enemy is not dead and the attacker is not choosing himself
+                                if (NotDeadEnemy(enemy) == true && ChooseYourself(attacker) == false) // if the enemy is not dead and the attacker is not choosing himself
                                 {
                                     Attack(attacker, enemy); // attacker hits the enemy
                                     AllDead(); // checking if everybody is dead except one guy
