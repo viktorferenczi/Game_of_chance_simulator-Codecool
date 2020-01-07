@@ -7,7 +7,7 @@ namespace GameOfChanceSimulator
 {
     public class GameSimulator
     {
-        public GameSimulator()
+        public string Simulator()
         {
             string[] turtlelines = File.ReadAllLines("turtle.csv");
             List<string> datas;
@@ -45,6 +45,8 @@ namespace GameOfChanceSimulator
 
             }
 
+          
+
              bool AllDead()
             {
                 int counter = 0;
@@ -57,6 +59,7 @@ namespace GameOfChanceSimulator
                 }
                 if (counter == 4)
                 {
+                    
                     return true;
                 }
                 else
@@ -114,27 +117,40 @@ namespace GameOfChanceSimulator
 
                 for (int attacker = 0; attacker < turtles.Count; attacker++) // 5 hit for 5 attacker
                 {
-                    while (true) // this while loop: trying to attack, but if he can't he will choose a new opponent
+                    if (NotDeadYourself(attacker) == true) // if the attacker is not dead
                     {
-                        int enemy = rnd.Next(0, turtles.Capacity - 1); // generate an enemy
-
-                        if (NotDeadYourself(attacker) == true) // if the attacker is not dead
+                        while (true) // this while loop: trying to attack, but if he can't he will choose a new opponent
                         {
-                            if (NotDeadenemy(enemy) == true && ChooseYourself(attacker) == false) // if the enemy is not dead and the attacker is not choosing himself
+                            int enemy = rnd.Next(0, turtles.Count); // generate an enemy
+
+                            if (NotDeadYourself(attacker) == true) // if the attacker is not dead
                             {
-                                Attack(attacker, enemy); // attacker hits the enemy
-                                AllDead(); // checking if everybody is dead except one guy
-                                break; // forloop iterating for the next attacker
+                                if (NotDeadenemy(enemy) == true && ChooseYourself(attacker) == false) // if the enemy is not dead and the attacker is not choosing himself
+                                {
+                                    Attack(attacker, enemy); // attacker hits the enemy
+                                    AllDead(); // checking if everybody is dead except one guy
+                                    break; // forloop iterating for the next attacker
+                                }
                             }
+                            continue; // this attacker try to attack again.
                         }
-                        continue; // this attacker try to attack again.
+
                     }
+                  
                
                 }
 
             }
-           // ReturnWinner();
 
+            for (int i = 0; i < turtles.Count; i++)
+            {
+                if (turtles[i].Health > 0)
+                {
+                    return turtles[i].Name;
+                }
+
+            }
+            throw new InvalidOperationException("asd");
         }
 
      }

@@ -5,7 +5,7 @@ namespace GameOfChanceSimulator
         static void Main()
         {
             GameSimulator alma = new GameSimulator();
-            System.Console.WriteLine(alma);
+            System.Console.WriteLine(alma.Simulator());
         }
     }
 }
