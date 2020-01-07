@@ -98,17 +98,7 @@ namespace GameOfChanceSimulator
                 return true;
             }
 
-          //  string ReturnWinner()
-           // {
-            //    for (int i = 0; i < turtles.Capacity; i++)
-             //   {
-              //      if (turtles[i].Health > 0)
-              //      {
-               //         return turtles[i].Name;
-               //     }
-                   
-              //  }
-          //  }
+         
 
             AllDead(); // setting AllDead to false
 
