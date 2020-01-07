@@ -5,4 +5,19 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <RootNamespace>GameOfChanceSimulator</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="Turtle.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="history.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="turtle.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
