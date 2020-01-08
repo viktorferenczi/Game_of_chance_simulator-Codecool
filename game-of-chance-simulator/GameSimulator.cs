@@ -6,9 +6,9 @@ using System.Linq;
 namespace GameOfChanceSimulator
 {
     public class GameSimulator
-    {
-        public string Simulator()
-        {
+    { 
+        public string[] Simulator()
+        { 
             string[] turtlelines = File.ReadAllLines("turtle.csv");
             List<string> datas;
             List<Turtle> turtles = new List<Turtle>();
@@ -61,7 +61,7 @@ namespace GameOfChanceSimulator
                         counter += 1;
                     }
                 }
-                if (counter == 4 || counter == 5)
+                if (counter == 4)
                 {
                     
                     return true;
@@ -113,6 +113,7 @@ namespace GameOfChanceSimulator
                                 if (NotDeadEnemy(enemy) == true && attacker != enemy) // if the enemy is not dead and the attacker is not choosing himself
                                 {
                                     Attack(attacker, enemy); // attacker hits the enemy
+                                    DiedByRanks(); //check who died recently
                                     AllDead(); // checking if everybody is dead except one guy
                                     break; // forloop iterating for the next attacker
                                 }
@@ -126,16 +127,36 @@ namespace GameOfChanceSimulator
                 }
 
             }
-
-            for (int i = 0; i < turtles.Count; i++)
+            List<string> Listbackward()
             {
-                if (turtles[i].Health > 0)
+                List<string> lista = new List<string>();
+                lista = DiedByRanks();
+                for (int i = 0; i < turtles.Count; i++)
                 {
-                    return turtles[i].Name; // Returns the survivor's name
-                }
+                    if (turtles[i].Health > 0)
+                    {
+                        lista.Add(turtles[i].Name); // Returns the survivor's name
+                    }
 
+                }
+                lista.Reverse();
+                return lista;
             }
-            return "No survivor!"; // epic battle, no survivor, the last two man killed each other
+
+            List<string> DiedByRanks()
+            {
+                List<string> datas = new List<string>();
+                for(int i = 0;i < turtles.Count;i++)
+                {
+                    if(turtles[i].Health <= 0 && !datas.Contains(turtles[i].Name))
+                    {
+                        datas.Add(turtles[i].Name);
+                    }
+                }
+                return datas;
+            }
+
+            
         }
 
      }

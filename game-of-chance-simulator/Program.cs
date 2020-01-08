@@ -13,7 +13,6 @@ namespace GameOfChanceSimulator
             {
                 Console.WriteLine(alma.Simulator());
             }
-            
         }
     }
 }
