@@ -7,7 +7,7 @@ namespace GameOfChanceSimulator
 {
     public class GameSimulator
     { 
-        public string[] Simulator()
+        public List<string> Simulator()
         { 
             string[] turtlelines = File.ReadAllLines("turtle.csv");
             List<string> datas;
@@ -83,7 +83,7 @@ namespace GameOfChanceSimulator
                 return true;
             }
 
-            //
+            
 
             bool NotDeadYourself(int i) // check if the attacker is alive
             {
