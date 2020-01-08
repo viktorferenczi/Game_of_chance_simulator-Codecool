@@ -3,14 +3,15 @@ namespace GameOfChanceSimulator
 {
     public class Result
     {
-        readonly int NumberOfSimulations;
-        readonly string BestChoice;
-        readonly float BestChoiceChance;
+        public int NumberOfSimulations { get; private set; }
+        public string BestChoice { get; private set; }
+        public float BestChoiceChance { get; private set; }
 
-        public Result(int, string, float)
+        public Result(int NumberOfSimulations, string BestChoice, float BestChoiceChance)
         {
-
-
+            this.NumberOfSimulations = NumberOfSimulations;
+            this.BestChoice = BestChoice;
+            this.BestChoiceChance = BestChoiceChance;
         }
     }
 }

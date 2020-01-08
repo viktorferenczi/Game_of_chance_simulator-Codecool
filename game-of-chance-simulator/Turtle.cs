@@ -18,9 +18,7 @@ namespace GameOfChanceSimulator
             this.Health = health;
             this.Damage = damage;
             this.Crit = crit;
-        }
-
-        
+        } 
 
     }
 }

@@ -1,28 +1,54 @@
 using System;
+using System.Linq;
 
 namespace GameOfChanceSimulator
 
 {
     class Program
     {
-        static void Main(string[] args)
+        static ConsoleLogger logger = new ConsoleLogger();
+        static HistoricalDataSet data = new HistoricalDataSet(logger);
+
+        static HistoricalDataSet GenerateHistoricalDataSet(int NumberofSimulations)
         {
-            GameSimulator alma = new GameSimulator();
-            int num = Convert.ToInt32(args[0]);
-            for (int i = 0; i < num; i++)
+            /* alling the method generates historical data (as many rounds as the rounds parameter specifies) or
+            if the parameter's value is 0 it loads existing data from a file called history.csv. */
+
+            if (NumberofSimulations.Equals(0))
             {
-                Console.WriteLine(alma.Simulator());
+                data.Load();
+                logger.Info("Using already generated data stored in the file...\n");
+                for (int i = 0; i < data.Datapoints.Count; i++)
+                {
+                    logger.Info("Turtle massacre. Winner: " + data.Datapoints[i].GetWinner());
+                }
+                var Evaulating = new DataEvaluator(data, logger);
+                return data;
+            }
+            else
+            {
+                data.Load();
+                for (int j = 0; j < NumberofSimulations; j++)
+                {
+                    logger.Info("Turtle massacre. Winner: " + data.Datapoints[j].GetWinner());
+                }
+                var Evaulating = new DataEvaluator(data, logger);
+                return data;
             }
 
+        }
 
-            HistoricalDataSet GenerateHistoricalDataSet(string[] something)
+        static void Main(string[] args)
+        {
+            if (args.Length == 0 || Convert.ToInt32(args[0]).Equals(0))
             {
-
-                /* alling the method generates historical data (as many rounds as the rounds parameter specifies) or
-                if the parameter's value is 0 it loads existing data from a file called history.csv. */
-
-                return null;
+                GenerateHistoricalDataSet(0);
+            }
+            else
+            {
+                GenerateHistoricalDataSet(Convert.ToInt32(args[0]));
             }
         }
     }
 }
+

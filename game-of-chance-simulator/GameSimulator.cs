@@ -29,7 +29,15 @@ namespace GameOfChanceSimulator
             }
             // getting data from csv, then put the fighter objects in a list
 
-
+        List<string> GetTurtles()
+            {
+                List<string> turtlenames = new List<string>();
+                for (int i = 0; i < turtles.Count; i++)
+                {
+                    turtlenames.Add(turtles[i].Name);
+                }
+                return turtlenames;
+            }
 
             Random rnd = new Random(); // random generator for enemy
 
@@ -135,7 +143,7 @@ namespace GameOfChanceSimulator
                 {
                     if (turtles[i].Health > 0)
                     {
-                        lista.Add(turtles[i].Name); // Returns the survivor's name
+                        lista.Add(turtles[i].Name);
                     }
 
                 }
@@ -155,7 +163,7 @@ namespace GameOfChanceSimulator
                 }
                 return datas;
             }
-
+            return Listbackward();
             
         }
 
