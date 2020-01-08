@@ -83,7 +83,7 @@ namespace GameOfChanceSimulator
                 return true;
             }
 
-            //
+            
 
             bool NotDeadYourself(int i) // check if the attacker is alive
             {

@@ -13,7 +13,16 @@ namespace GameOfChanceSimulator
             {
                 Console.WriteLine(alma.Simulator());
             }
-            
+
+
+            HistoricalDataSet GenerateHistoricalDataSet(string[] something)
+            {
+
+                /* alling the method generates historical data (as many rounds as the rounds parameter specifies) or
+                if the parameter's value is 0 it loads existing data from a file called history.csv. */
+
+                return null;
+            }
         }
     }
 }
