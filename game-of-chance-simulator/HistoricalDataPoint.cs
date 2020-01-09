@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GameOfChanceSimulator
 {
@@ -15,8 +16,14 @@ namespace GameOfChanceSimulator
 
         public HistoricalDataPoint(List<string> SimulationResult)
         {
-            this.Storinglist = $"{SimulationResult[0]},{SimulationResult[1]}," +
-                $"{SimulationResult[2]},{SimulationResult[3]},{SimulationResult[4]}";
+            string jaja="";
+            for (int i = 0; i < SimulationResult.Count; i++)
+            {
+                jaja += SimulationResult[i] + ",";
+                this.Storinglist = jaja;
+            }
+       //     this.Storinglist = $"{SimulationResult[0]},{SimulationResult[1]}," +
+         //       $"{SimulationResult[2]},{SimulationResult[3]},{SimulationResult[4]}";
             this.winner = SimulationResult[0];
         }
 
