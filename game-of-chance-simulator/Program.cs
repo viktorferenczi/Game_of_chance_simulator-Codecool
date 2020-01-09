@@ -22,12 +22,13 @@ namespace GameOfChanceSimulator
                 {
                     logger.Info("Turtle massacre. Winner: " + data.Datapoints[i].winner);
                 }
-                var Evaulating = new DataEvaluator(data, logger);
+               DataEvaluator Evaulating = new DataEvaluator(data, logger);
+                Evaulating.Run(data);
                 return data;
             }
             else
             {
-                data.Load();
+                data.Generate();
                 for (int j = 0; j < NumberofSimulations; j++)
                 {
                     logger.Info("Turtle massacre. Winner: " + data.Datapoints[j].winner);

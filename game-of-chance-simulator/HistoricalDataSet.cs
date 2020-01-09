@@ -59,7 +59,7 @@ namespace GameOfChanceSimulator
             
         }
 
-        void Generate()
+       public void Generate()
         {
 
             /* calling the method generates a single new (randomized) HistoricalDataPoint instance,
