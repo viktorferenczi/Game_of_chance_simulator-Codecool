@@ -23,7 +23,7 @@ namespace GameOfChanceSimulator
                 this.Storinglist = jaja;
             }
        //     this.Storinglist = $"{SimulationResult[0]},{SimulationResult[1]}," +
-         //       $"{SimulationResult[2]},{SimulationResult[3]},{SimulationResult[4]}";
+       //       $"{SimulationResult[2]},{SimulationResult[3]},{SimulationResult[4]}";
             this.winner = SimulationResult[0];
         }
 

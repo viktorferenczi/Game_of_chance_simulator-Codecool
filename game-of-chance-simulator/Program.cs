@@ -2,10 +2,10 @@ using System;
 using System.Linq;
 
 namespace GameOfChanceSimulator
-
 {
     class Program
     {
+
         static ConsoleLogger logger = new ConsoleLogger();
         static HistoricalDataSet data = new HistoricalDataSet(logger);
 

@@ -69,9 +69,8 @@ namespace GameOfChanceSimulator
 
             HistoricalDataPoint data = new HistoricalDataPoint(game.Simulator());
             AddDataPoint(data);
-            Size++;
 
-            string file = @"/Users/macbook/Desktop/tw1/game-of-chance-simulator/history.csv";
+            string file = "history.csv";
 
             if (!File.Exists(file))
             {
@@ -90,14 +89,13 @@ namespace GameOfChanceSimulator
 
         public void Load()
         {
-            string file = @"/Users/macbook/Desktop/tw1/game-of-chance-simulator/history.csv";
+            string file = "history.csv";
             string[] data = File.ReadAllLines(file);
 
             foreach (var item in data)
             {
                 HistoricalDataPoint DataFollowup = new HistoricalDataPoint(item);
                 AddDataPoint(DataFollowup);
-                Size++;
             }
             /* calling the method reads already generated data points from history.csv,
              * it creates an instance of HistoricalDataPoint for each entry in the CSV file. */

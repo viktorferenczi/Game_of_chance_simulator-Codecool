@@ -69,7 +69,7 @@ namespace GameOfChanceSimulator
                         counter += 1;
                     }
                 }
-                if (counter == 4)
+                if (counter == turtles.Count-1)
                 {
                     
                     return true;
