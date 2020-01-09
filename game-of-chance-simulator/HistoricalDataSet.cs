@@ -49,11 +49,12 @@ namespace GameOfChanceSimulator
 
         public HistoricalDataSet(ILogger logger)
         {
-           
-            logger.Info("The turtles are: \n");
+            int counter = 1;
+            logger.Info("The fighter turtles are: \n");
             foreach (var turtle in GetTurtles())
             {
-                Console.WriteLine(turtle + "\n");
+                Console.WriteLine(counter + ". " + turtle + "\n");
+                counter++;
                
             }
             

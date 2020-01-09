@@ -47,9 +47,13 @@ namespace GameOfChanceSimulator
             string result = "showresult";
             try
             {
-                if (args.Length == 0 || Convert.ToInt32(args[0]).Equals(0))
+                if (args.Length == 0)
                 {
                     logger.Error("Oops an Error Occurred!\nPlease use: \nnumbers to generate matches \nor \n'showresult' command to see the generated results.");
+                }
+                else if (Convert.ToInt32(args[0]) < 3)
+                {
+                    logger.Error("Oops an Error Occurred!\nPlease enter a number, greater than 2 to generate a result.");
                 }
                 
                 else
