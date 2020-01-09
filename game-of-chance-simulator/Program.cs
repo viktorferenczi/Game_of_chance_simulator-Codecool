@@ -20,7 +20,7 @@ namespace GameOfChanceSimulator
                 logger.Info("Using already generated data stored in the file...\n");
                 for (int i = 0; i < data.Datapoints.Count; i++)
                 {
-                    logger.Info("Turtle massacre. Winner: " + data.Datapoints[i].GetWinner());
+                    logger.Info("Turtle massacre. Winner: " + data.Datapoints[i].winner);
                 }
                 var Evaulating = new DataEvaluator(data, logger);
                 return data;
@@ -30,7 +30,7 @@ namespace GameOfChanceSimulator
                 data.Load();
                 for (int j = 0; j < NumberofSimulations; j++)
                 {
-                    logger.Info("Turtle massacre. Winner: " + data.Datapoints[j].GetWinner());
+                    logger.Info("Turtle massacre. Winner: " + data.Datapoints[j].winner);
                 }
                 var Evaulating = new DataEvaluator(data, logger);
                 return data;

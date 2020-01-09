@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace GameOfChanceSimulator
 {
@@ -8,23 +9,54 @@ namespace GameOfChanceSimulator
     {
         GameSimulator game = new GameSimulator();
         public int Size { get; private set; } // read-only property to expose the number of the underlying data
-        private List<HistoricalDataPoint> __DataPoints;
+        private List<HistoricalDataPoint> __DataPoints = new List<HistoricalDataPoint>();
         public IReadOnlyList<HistoricalDataPoint> Datapoints { get { return __DataPoints.AsReadOnly(); } }
 
-        internal void AddDataPoint(HistoricalDataPoint data)
+         internal void AddDataPoint(HistoricalDataPoint data)
         {
             __DataPoints.Add(data);
         }
 
+
+
+       List<string> GetTurtles()
+        {
+            string[] turtlelines = File.ReadAllLines("turtle.csv");
+            List<string> datas;
+            List<string> tekik = new List<string>();
+            List<Turtle> turtles = new List<Turtle>();
+
+
+            for (int i = 0; i < turtlelines.Length; i++)
+            {
+                List<string> data = new List<string>();
+                data.Add(turtlelines[i]);
+                for (int j = 0; j < data.Count; j++)
+                {
+                    datas = data[j].Split(',').ToList();
+                    tekik.Add(datas[0]);
+                    
+                }
+
+            }
+            return tekik;
+
+
+        }
+
+
+
+
         public HistoricalDataSet(ILogger logger)
         {
-
-            logger.Info("The turtles are: ");
-            foreach (var turtle in game.Simulator())
+           
+            logger.Info("The turtles are: \n");
+            foreach (var turtle in GetTurtles())
             {
-                logger.Info("turtle");
+                Console.WriteLine(turtle + "\n");
+               
             }
-            logger.Info("");
+            
         }
 
         void Generate()

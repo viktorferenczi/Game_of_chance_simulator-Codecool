@@ -14,21 +14,7 @@ namespace GameOfChanceSimulator
 
         }
 
-        bool HaveItAlready(HistoricalDataSet data, Dictionary<string,int> Dictionary)
-        {
-            
-            int Simulations = data.Datapoints.Count;
-            for (int i = 0; i < Simulations; i++)
-            {
-                var WinnerList = data.Datapoints[i].GetWinner();
-                if (!Dictionary.ContainsKey(WinnerList))
-                {
-                    return true;
-                }
-                return false;
-                
-            }
-        }
+       
 
         public Result Run(HistoricalDataSet data)
         {
@@ -37,11 +23,11 @@ namespace GameOfChanceSimulator
             for (int i = 0; i < Simulations; i++)
             {
                 var WinnerList = data.Datapoints[i].GetWinner();
-                if (HaveItAlready(data,Winners) == false)
+                if (!Winners.ContainsKey(WinnerList))
                 {
                     Winners[WinnerList] = 1;
                 }
-                else if(HaveItAlready(data,Winners) == true)
+                else if(Winners.ContainsKey(WinnerList))
                 {
                     Winners[WinnerList]++;
                 }

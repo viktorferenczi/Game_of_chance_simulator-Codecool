@@ -11,7 +11,7 @@ namespace GameOfChanceSimulator
         /* it could store the names of the horses that participated in a race
         and the order that they've finished after the race. */
 
-        string winner { get; set; } // store the winner
+        public string winner { get; set; } // store the winner
 
         public HistoricalDataPoint(List<string> SimulationResult)
         {
