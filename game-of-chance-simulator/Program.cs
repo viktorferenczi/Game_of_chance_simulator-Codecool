@@ -28,12 +28,15 @@ namespace GameOfChanceSimulator
             }
             else
             {
-                data.Generate();
+                
                 for (int j = 0; j < NumberofSimulations; j++)
                 {
+                    
+                    data.Generate();
                     logger.Info("Turtle massacre. Winner: " + data.Datapoints[j].winner);
                 }
-                var Evaulating = new DataEvaluator(data, logger);
+                DataEvaluator Evaulating = new DataEvaluator(data, logger);
+                Evaulating.Run(data);
                 return data;
             }
 
@@ -41,14 +44,31 @@ namespace GameOfChanceSimulator
 
         static void Main(string[] args)
         {
-            if (args.Length == 0 || Convert.ToInt32(args[0]).Equals(0))
+            string result = "showresult";
+            try
             {
-                GenerateHistoricalDataSet(0);
+                if (args.Length == 0 || Convert.ToInt32(args[0]).Equals(0))
+                {
+                    logger.Error("Oops an Error Occurred!\nPlease use: \nnumbers to generate matches \nor \n'showresult' command to see the generated results.");
+                }
+                
+                else
+                {
+                    GenerateHistoricalDataSet(Convert.ToInt32(args[0]));
+                }
             }
-            else
+            catch (Exception ex)
             {
-                GenerateHistoricalDataSet(Convert.ToInt32(args[0]));
+                if (args[0].Equals(result))
+                {
+                    GenerateHistoricalDataSet(0);
+                }
+                else
+                {
+                    logger.Error("Oops an Error Occurred!\nPlease use: \nnumbers to generate matches \nor \n'showresult' command to see the generated results.");
+                }
             }
+            
         }
     }
 }
