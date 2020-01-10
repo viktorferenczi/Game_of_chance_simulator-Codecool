@@ -16,6 +16,7 @@ namespace GameOfChanceSimulator
 
         public HistoricalDataPoint(List<string> SimulationResult)
         {
+            // Generate data from a list
             string jaja="";
             for (int i = 0; i < SimulationResult.Count; i++)
             {
@@ -29,6 +30,7 @@ namespace GameOfChanceSimulator
 
         public HistoricalDataPoint(string Data)
         {
+            // same as the upper constructor just with string
             this.Storinglist = Data;
             string[] SimulationResult = Data.Split(",");
             this.winner = SimulationResult[0];

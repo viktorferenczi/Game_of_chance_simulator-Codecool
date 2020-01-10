@@ -8,7 +8,8 @@ namespace GameOfChanceSimulator
     public class GameSimulator
     { 
         public List<string> Simulator()
-        { 
+        {
+            // getting data from csv, then put the fighter objects in a list
             string[] turtlelines = File.ReadAllLines("turtle.csv");
             List<string> datas;
             List<Turtle> turtles = new List<Turtle>();
@@ -27,10 +28,11 @@ namespace GameOfChanceSimulator
                 }
 
             }
-            // getting data from csv, then put the fighter objects in a list
+            
 
         List<string> GetTurtles()
             {
+                // get the turtles
                 List<string> turtlenames = new List<string>();
                 for (int i = 0; i < turtles.Count; i++)
                 {
@@ -44,8 +46,9 @@ namespace GameOfChanceSimulator
 
 
 
-            void Attack(int Attacker, int Attacked) // ATTACK!!!!!!
+            void Attack(int Attacker, int Attacked) 
             {
+                // ATTACK!!!!!!
                 if (rnd.Next(0, 100) < turtles[Attacker].Crit)
                 {
                     turtles[Attacked].Health -= 200;
@@ -59,8 +62,9 @@ namespace GameOfChanceSimulator
 
           
 
-             bool AllDead() // check how many dead turtle in the game
+             bool AllDead() 
             {
+                // check how many dead turtle in the game
                 int counter = 0;
                 for (int i = 0; i < turtles.Count; i++)
                 {
@@ -81,9 +85,9 @@ namespace GameOfChanceSimulator
 
             }
 
-            bool NotDeadEnemy(int number) // check if the enemy is alive or not
+            bool NotDeadEnemy(int number) 
             {
-
+                // check if the enemy is alive or not
                 if (turtles[number].Health <= 0)
                 {
                     return false;
@@ -93,9 +97,9 @@ namespace GameOfChanceSimulator
 
             
 
-            bool NotDeadYourself(int i) // check if the attacker is alive
+            bool NotDeadYourself(int i) 
             {
-
+                // check if the attacker is alive
                 if (turtles[i].Health <= 0)
                 {
                     return false;
@@ -137,6 +141,7 @@ namespace GameOfChanceSimulator
             }
             List<string> Listbackward()
             {
+                // getting list backward
                 List<string> lista = new List<string>();
                 lista = DiedByRanks();
                 for (int i = 0; i < turtles.Count; i++)
@@ -153,6 +158,7 @@ namespace GameOfChanceSimulator
 
             List<string> DiedByRanks()
             {
+                // getting the list of the turtles by death
                 List<string> datas = new List<string>();
                 for(int i = 0;i < turtles.Count;i++)
                 {

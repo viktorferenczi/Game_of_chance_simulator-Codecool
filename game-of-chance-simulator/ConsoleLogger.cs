@@ -11,6 +11,7 @@ namespace GameOfChanceSimulator
 
         public void Error(string message)
         {
+            // error logging
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("Error ");
             Console.ResetColor();
@@ -19,8 +20,7 @@ namespace GameOfChanceSimulator
 
         public void Info(string message)
         {
-           
-            
+           // info logging
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write("INFO ");
             Console.ResetColor();

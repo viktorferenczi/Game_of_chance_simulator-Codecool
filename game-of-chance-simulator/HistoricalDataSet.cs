@@ -14,6 +14,7 @@ namespace GameOfChanceSimulator
 
          internal void AddDataPoint(HistoricalDataPoint data)
         {
+            // adding data to the Datapoint list
             __DataPoints.Add(data);
         }
 
@@ -21,6 +22,7 @@ namespace GameOfChanceSimulator
 
        List<string> GetTurtles()
         {
+            // get all the turtles from the csv
             string[] turtlelines = File.ReadAllLines("turtle.csv");
             List<string> datas;
             List<string> tekik = new List<string>();
@@ -47,8 +49,9 @@ namespace GameOfChanceSimulator
 
 
 
-        public HistoricalDataSet(ILogger logger)
+        public HistoricalDataSet(ILogger logger) 
         {
+            // list the actual fighter turtles
             int counter = 1;
             logger.Info("The fighter turtles are: \n");
             foreach (var turtle in GetTurtles())
@@ -87,8 +90,10 @@ namespace GameOfChanceSimulator
 
 
 
-        public void Load()
+        public void Load() 
         {
+            /* calling the method reads already generated data points from history.csv,
+             * it creates an instance of HistoricalDataPoint for each entry in the CSV file. */
             string file = "history.csv";
             string[] data = File.ReadAllLines(file);
 
@@ -97,8 +102,7 @@ namespace GameOfChanceSimulator
                 HistoricalDataPoint DataFollowup = new HistoricalDataPoint(item);
                 AddDataPoint(DataFollowup);
             }
-            /* calling the method reads already generated data points from history.csv,
-             * it creates an instance of HistoricalDataPoint for each entry in the CSV file. */
+            
         }
     }
 }
