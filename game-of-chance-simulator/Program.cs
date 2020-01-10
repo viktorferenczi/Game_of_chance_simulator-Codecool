@@ -61,7 +61,7 @@ namespace GameOfChanceSimulator
                     GenerateHistoricalDataSet(Convert.ToInt32(args[0]));
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 if (args[0].Equals(result)) // if the args is show result, load data from csv
                 {

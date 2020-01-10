@@ -30,16 +30,6 @@ namespace GameOfChanceSimulator
             }
             
 
-        List<string> GetTurtles()
-            {
-                // get the turtles
-                List<string> turtlenames = new List<string>();
-                for (int i = 0; i < turtles.Count; i++)
-                {
-                    turtlenames.Add(turtles[i].Name);
-                }
-                return turtlenames;
-            }
 
             Random rnd = new Random(); // random generator for enemy
 

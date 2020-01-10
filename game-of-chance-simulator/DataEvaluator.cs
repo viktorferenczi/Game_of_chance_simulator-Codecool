@@ -11,7 +11,7 @@ namespace GameOfChanceSimulator
             // winrate info
             var Result = Run(DataSet);
             logger.Info("Number of Simulations: " + Result.NumberOfSimulations + ". \n");
-            logger.Info("Your best choice would be: " + Result.BestChoice + "! (S)he has a winrate of " + Result.BestChoiceChance * 100 + "%.\n");
+            logger.Info("Your best choice would be: " + Result.BestChoice + "! (S)he has a winrate of " + Math.Round(Result.BestChoiceChance * 100,3) + "%.\n");
 
         }
 
@@ -40,7 +40,7 @@ namespace GameOfChanceSimulator
             // getting the best winner
             float ChanceForBestChoice = (float)Winners[BestChoiceForWin] / (float)Simulations;
             Result final = new Result(Simulations, BestChoiceForWin, ChanceForBestChoice);
-                return final;
+            return final;
         }  
     }
 }
