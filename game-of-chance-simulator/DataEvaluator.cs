@@ -35,7 +35,7 @@ namespace GameOfChanceSimulator
                 }
 
             }
-           // var BestChoiceForWin = Winners.Keys.Max();
+           
             string BestChoiceForWin = Winners.Aggregate((l, r) => l.Value > r.Value ? l : r).Key;
             // getting the best winner
             float ChanceForBestChoice = (float)Winners[BestChoiceForWin] / (float)Simulations;
